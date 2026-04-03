@@ -68,10 +68,10 @@ export default function SignInScreen() {
             onPress={() => handleSocialAuth("oauth_x")}
           >
             <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
-              <FontAwesome name="github" size={24} color="#111" />
+              <FontAwesome6 name="x-twitter" size={24} color="black" />
             </View>
             <Text className="ml-3 flex-1 text-lg font-semibold text-card-foreground">
-              {isGitHubClicked ? "Connecting GitHub..." : "Continue with GitHub"}
+              {isGitHubClicked ? "Connecting X..." : "Continue with X"}
             </Text>
             <FontAwesome name="angle-right" size={18} color="#5f6e66" />
           </Pressable>
