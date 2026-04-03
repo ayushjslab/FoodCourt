@@ -1,4 +1,5 @@
 import { useSSO } from "@clerk/expo";
+import * as Linking from 'expo-linking';
 import { useState } from "react";
 import { Alert } from "react-native";
 
@@ -11,7 +12,10 @@ const useSocialAuth = () => {
 
         setLoadingStrategy(strategy)
         try {
-            const { createdSessionId, setActive } = await startSSOFlow({ strategy });
+            const { createdSessionId, setActive } = await startSSOFlow({
+                strategy,
+                redirectUrl: Linking.createURL('/sso-callback', { scheme: 'foodcourt' }),
+            });
             if (!createdSessionId || !setActive) {
                 Alert.alert("Sign-in incomplete", "Sign-in did not complete. Please try again.");
                 return;
