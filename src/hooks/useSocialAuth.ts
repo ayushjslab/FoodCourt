@@ -3,10 +3,10 @@ import { useState } from "react";
 import { Alert } from "react-native";
 
 const useSocialAuth = () => {
-     const [loadingStrategy, setLoadingStrategy] = useState<string | null>(null);
+    const [loadingStrategy, setLoadingStrategy] = useState<string | null>(null);
     const { startSSOFlow } = useSSO()
 
-    const handleSocialAuth = async (strategy: "oauth_google" | "oauth_github" | "oauth_apple") => {
+    const handleSocialAuth = async (strategy: "oauth_google" | "oauth_x" | "oauth_apple") => {
         if (loadingStrategy) return;
 
         setLoadingStrategy(strategy)

@@ -1,18 +1,18 @@
-import useSocialAuth from '@/hooks/useSocialAuth'
-import { Image } from 'expo-image'
-import { View, Text, Pressable } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import useSocialAuth from '@/hooks/useSocialAuth';
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
+import { Image } from 'expo-image';
+import { Pressable, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function SignInScreen() {
   const { handleSocialAuth, loadingStrategy } = useSocialAuth()
   const isGoogleClicked = loadingStrategy === "oauth_google";
   const isAppleClicked = loadingStrategy === "oauth_apple";
-  const isGitHubClicked = loadingStrategy === "oauth_github";
+  const isGitHubClicked = loadingStrategy === "oauth_x";
 
   const isLoading = isAppleClicked || isGitHubClicked || isGoogleClicked;
   return (
-    <SafeAreaView className='flex-1 bg-primary dark:bg-secondary'>
+    <SafeAreaView className='flex-1 bg-primary dark:bg-secondary' edges={["top"]}>
       <View className="absolute -left-16 top-12 h-56 w-56 rounded-full bg-primary/80 dark:bg-background/40" />
       <View className="absolute right-[-74px] top-40 h-72 w-72 rounded-full bg-primary/70 dark:bg-background/35" />
       <View className="px-6 pt-4">
@@ -65,7 +65,7 @@ export default function SignInScreen() {
             className={`mb-3 h-14 flex-row items-center rounded-2xl border border-border bg-card px-4 active:opacity-90 ${isLoading ? "opacity-70" : ""
               }`}
             disabled={isLoading}
-            onPress={() => handleSocialAuth("oauth_github")}
+            onPress={() => handleSocialAuth("oauth_x")}
           >
             <View className="h-8 w-8 items-center justify-center rounded-full bg-white">
               <FontAwesome name="github" size={24} color="#111" />
